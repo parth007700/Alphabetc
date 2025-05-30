@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alphabet E-Pathshala</title>
+  <link rel="icon" type="image/jpg" href="D:/favicon.jpg.jpg" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #fdfbfb, #ebedee);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .question-text {
+      font-size: 1.2rem;
+      color: #34495e;
+      text-align: center;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .answer-button {
+      padding: 15px;
+      font-size: 1.1rem;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .answer-button:nth-child(1) { animation-delay: 0.4s; }
+    .answer-button:nth-child(2) { animation-delay: 0.6s; background-color: #2ecc71; }
+    .answer-button:nth-child(3) { animation-delay: 0.8s; background-color: #e67e22; }
+    .answer-button:nth-child(4) { animation-delay: 1s; background-color: #e74c3c; }
+
+    .answer-button:hover {
+      transform: scale(1.03);
+      filter: brightness(90%);
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .answer-button.correct {
+      background-color: #2ecc71 !important;
+    }
+
+    .answer-button.incorrect {
+      background-color: #e74c3c !important;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Question 3</h1>
+
+  <div class="question-text">
+	Which application is used to create spreadsheets?  </div>
+
+  <div class="button-container">
+    <button class="answer-button" onclick="checkAnswer(this, false)">Word</button>
+    <button class="answer-button" onclick="checkAnswer(this, true)">Excel</button>
+    <button class="answer-button" onclick="checkAnswer(this, false)">Power Point</button>
+    <button class="answer-button" onclick="checkAnswer(this, false)">Access</button>
+  </div>
+
+  <audio id="correctSound" src="correct.mp3" preload="auto"></audio>
+  <audio id="wrongSound" src="wrong.mp3" preload="auto"></audio>
+
+  <script>
+    function checkAnswer(button, isCorrect) {
+      const correctSound = document.getElementById('correctSound');
+      const wrongSound = document.getElementById('wrongSound');
+
+      const allButtons = document.querySelectorAll('.answer-button');
+      allButtons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        button.classList.add('correct');
+        correctSound.play();
+        setTimeout(() => {
+          window.location.href = "Correct2.html";
+        }, 1200);
+      } else {
+        button.classList.add('incorrect');
+        wrongSound.play();
+        setTimeout(() => {
+          window.location.href = "Wrong.html";
+        }, 1200);
+      }
+    }
+  </script>
+
+</body>
+</html>

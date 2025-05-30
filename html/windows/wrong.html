@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alphabet E-Pathshala</title>
+  <link rel="icon" type="image/jpg" href="D:/favicon.jpg.jpg" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f85032, #e73827);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .emoji {
+      font-size: 4rem;
+      animation: shake 0.8s infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ffffff;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #f0f0f0;
+    }
+
+    .retry-button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background-color: #c0392b;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .retry-button:hover {
+      background-color: #a93226;
+    }
+  </style>
+</head>
+<body>
+
+<audio id="wrongSound" autoplay>
+  <source src="sounds/wrong.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('wrongSound');
+    audio.play().catch((error) => {
+      console.log('Autoplay prevented:', error);
+    });
+  });
+</script>
+
+  <div class="emoji">❌</div>
+  <h1>Oops!</h1>
+  <p>That’s not quite right. Please try again.</p>
+  <a href="D:/html/windows/w1.html" class="retry-button">Re Attempt</a>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Alphabet E-Pathshala</title>
+  <link rel="icon" type="image/jpg" href="D:/favicon.jpg.jpg" />
+  <style>
+    body {
+      background: linear-gradient(to right, #00c9ff, #92fe9d);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .message {
+      font-size: 3em;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+      animation: bounceIn 1s ease;
+      z-index: 2;
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.3);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+      70% {
+        transform: scale(0.9);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .next-button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      color: #fff;
+      background-color: #28a745;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      animation: fadeIn 1.5s ease;
+      z-index: 2;
+    }
+
+    .next-button:hover {
+      background-color: #218838;
+      transform: scale(1.08);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body onload="initConfetti(); playApplause()">
+
+  <div class="message">🎉 Correct Answer! 🎉</div>
+  <button class="next-button" onclick="goToNext()">E-Commerce Questions</button>
+
+  <!-- Applause Sound -->
+  <audio id="applause" src="https://www.soundjay.com/human/applause-01.mp3" preload="auto"></audio>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <script>
+    function playApplause() {
+      document.getElementById('applause').play();
+    }
+
+    function goToNext() {
+      window.location.href = "D:/html/2.html"; // Change to your next question
+    }
+
+    // === Confetti Animation ===
+    const canvas = document.getElementById("confetti-canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let confetti = [];
+
+    for (let i = 0; i < 150; i++) {
+      confetti.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height - canvas.height,
+        r: Math.random() * 6 + 4,
+        d: Math.random() * 10 + 5,
+        color: `hsl(${Math.random() * 360}, 100%, 60%)`,
+        tilt: Math.floor(Math.random() * 10) - 5
+      });
+    }
+
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confetti.forEach((c, i) => {
+        ctx.beginPath();
+        ctx.lineWidth = c.r / 2;
+        ctx.strokeStyle = c.color;
+        ctx.moveTo(c.x + c.tilt + c.r / 4, c.y);
+        ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.d / 2);
+        ctx.stroke();
+      });
+
+      updateConfetti();
+    }
+
+    function updateConfetti() {
+      confetti.forEach(c => {
+        c.y += Math.cos(c.d / 2) + 1 + c.r / 2;
+        c.x += Math.sin(0.5);
+        if (c.y > canvas.height) {
+          c.y = -10;
+          c.x = Math.random() * canvas.width;
+        }
+      });
+    }
+
+    function initConfetti() {
+      setInterval(drawConfetti, 20);
+    }
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>

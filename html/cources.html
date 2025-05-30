@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<title>Alphabet E-Pathshala</title>
+  <link rel="icon" type="image/jpg" href="D:/favicon.jpg.jpg" />
+  <link rel="icon" type="image/jpg" href="D:/favicon.jpg.jpg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #2c3e50;
+      animation: slideDown 0.8s ease-out;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    li {
+      background: #ffffff;
+      margin: 12px 0;
+      padding: 15px 20px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, background 0.3s ease;
+      animation: slideUp 0.5s ease forwards;
+      opacity: 0;
+    }
+
+    li:hover {
+      background: #d1f3ff;
+      transform: scale(1.02);
+    }
+
+    li i {
+      margin-right: 15px;
+      color: #007bff;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .contact, .map {
+      text-align: center;
+      margin-top: 40px;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    .contact p {
+      font-size: 18px;
+      margin: 5px 0;
+    }
+
+    .map a {
+      color: white;
+      background: #007bff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+
+    .map a:hover {
+      background: #0056b3;
+    }
+
+    /* Modal Style */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      text-align: left;
+      animation: zoomIn 0.3s ease;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: black;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @media screen and (max-width: 600px) {
+      li { font-size: 16px; }
+      li i { font-size: 18px; }
+    }
+  </style>
+  <script>
+    const courseDetails = {
+      "MS-CIT": `<strong>MS-CIT</strong><ul><li>~4500</li><li>MS Office (Word, Excel, PowerPoint)</li><li>Introduction to AI</li></ul>`,
+      "E-ASSISTANT": `<strong>~9500</strong><ul><li>100% Job Guarantee</li><li>Document Management</li><li>Email & Office Procedures</li></ul>`,
+      "TALLY": `<strong>TALLY</strong><ul><li>~4500</li><li>GST Handling</li><li>Inventory & Payroll</li></ul>`,
+      "ADVANCED EXCEL": `<strong>EXCEL</strong><ul><li>~6500</li><li>Formulas & Functions</li><li>DBMS</li><li>Introduction to data science concepts</li></ul>`,
+      "PHOTOSHOP": `<strong>Photoshop</strong><ul><li>~4500</li><li>Image Editing</li><li>Creative Design</li><li>Photo Retouching</li></ul>`,
+      "COREL DRAW": `<strong>Corel Draw</strong><ul><li>~4500</li><li>Logo Design</li><li>Vector Art</li><li>Creative Layouts</li></ul>`,
+      "C": `<strong>C Programming</strong><ul><li>~6500</li><li>Syntax & Loops</li><li>Functions</li><li>Pointers & Arrays</li></ul>`,
+      "C++": `<strong>C++</strong><ul><li>~6500</li><li>OOP Concepts</li><li>Classes & Objects</li><li>Inheritance & Polymorphism</li></ul>`,
+      "PYTHON": `<strong>Python</strong><li>~6500</li><ul><li>Basics of Python</li><li>Data Structures</li><li>Intro to Automation</li></ul>`,
+      "JAVA": `<strong>Java</strong><ul><li>~6500</li><li>OOP in Java</li><li>GUI Programming</li><li>Application Development</li></ul>`,
+      "HARDWARE ~ NETWORKING": `<strong><li>~6500</li>Hardware & Networking</strong><ul><li>PC Assembly</li><li>Troubleshooting</li><li>Networking Basics</li></ul>`,
+      "HTML": `<strong>HTML</strong><ul><li>~4500</li><li>HTML5 Elements</li><li>Links, Forms, Media</li><li>Semantic Tags</li></ul>`,
+      "CSS": `<strong>CSS</strong><ul><li>~4500</li><li>Selectors & Styling</li><li>Box Model</li><li>Responsive Design</li></ul>`,
+      "JAVASCRIPT": `<strong>JavaScript<li>~4500</li></strong><ul><li>DOM Manipulation</li><li>Events</li><li>Functions & Logic</li></ul>`,
+      "11TH COMMERCE": `<strong>11th Commerce</strong><ul><li>~12000</li><li>Book Keeping</li><li>Economics</li><li>SP/OC/Maths</li></ul>`,
+      "12TH COMMERCE": `<strong>12th Commerce</strong><ul><li>~12000</li><li>Accountancy</li><li>Economics</li><li>OC/SP/Maths</li></ul>`,
+      "11TH SCIENCE (IT)": `<strong>11th Science (IT)</strong><li>~4500</li><ul><li>Computer Basics</li><li>HTML & Web Design</li><li>Logic Building</li></ul>`,
+      "12TH SCIENCE (IT)": `<strong>12th Science (IT)</strong><ul><li>~4500</li><li>Python</li><li>DBMS</li><li>Networking</li></ul>`
+    };
+
+    function showModal(course) {
+      const info = courseDetails[course] || "Details coming soon.";
+      document.getElementById("modal-text").innerHTML = info;
+      document.getElementById("modal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == document.getElementById("modal")) {
+        closeModal();
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const items = document.querySelectorAll("li");
+      items.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.08}s`;
+      });
+    });
+  </script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="top-bar">
+    <a href="D:/html/home.html" class="home-btn">🏠 Home</a>
+  </div>
+
+  <h1>Alphabet Computers Courses</h1>
+  <ul>
+    <li onclick="showModal('MS-CIT')"><i class="fas fa-laptop-code"></i>MS-CIT</li>
+    <li onclick="showModal('E-ASSISTANT')"><i class="fas fa-user-cog"></i>E-ASSISTANT</li>
+    <li onclick="showModal('TALLY')"><i class="fas fa-calculator"></i>TALLY</li>
+    <li onclick="showModal('ADVANCED EXCEL')"><i class="fas fa-chart-line"></i>ADVANCED EXCEL</li>
+    <li onclick="showModal('PHOTOSHOP')"><i class="fas fa-image"></i>PHOTOSHOP</li>
+    <li onclick="showModal('COREL DRAW')"><i class="fas fa-paint-brush"></i>COREL DRAW</li>
+    <li onclick="showModal('C')"><i class="fas fa-code"></i>C</li>
+    <li onclick="showModal('C++')"><i class="fas fa-code"></i>C++</li>
+    <li onclick="showModal('PYTHON')"><i class="fab fa-python"></i>PYTHON</li>
+    <li onclick="showModal('JAVA')"><i class="fab fa-java"></i>JAVA</li>
+    <li onclick="showModal('HARDWARE ~ NETWORKING')"><i class="fas fa-network-wired"></i>HARDWARE ~ NETWORKING</li>
+    <li onclick="showModal('HTML')"><i class="fab fa-html5"></i>HTML</li>
+    <li onclick="showModal('CSS')"><i class="fab fa-css3-alt"></i>CSS</li>
+    <li onclick="showModal('JAVASCRIPT')"><i class="fab fa-js-square"></i>JAVASCRIPT</li>
+    <li onclick="showModal('11TH COMMERCE')"><i class="fas fa-book"></i>11TH COMMERCE</li>
+    <li onclick="showModal('12TH COMMERCE')"><i class="fas fa-book-open"></i>12TH COMMERCE</li>
+    <li onclick="showModal('11TH SCIENCE (IT)')"><i class="fas fa-microscope"></i>11TH SCIENCE (IT)</li>
+    <li onclick="showModal('12TH SCIENCE (IT)')"><i class="fas fa-microscope"></i>12TH SCIENCE (IT)</li>
+  </ul>
+
+  <div class="contact">
+    <h2>Contact Us</h2>
+    <p>📞 9890861692</p>
+    <p>📞 9960552002</p>
+  </div>
+
+  <div class="map">
+    <h2>Find Us on Google Maps</h2>
+    <a href="https://www.google.com/maps/search/?api=1&query=Alphabet+Computers+Education+Narayangaon" target="_blank">
+      View on Google Maps
+    </a>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <p id="modal-text">Course details loading...</p>
+    </div>
+  </div>
+</body>
+</html>
