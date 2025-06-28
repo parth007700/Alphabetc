@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parth Bodke</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #121212;
+      color: #eee;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .contact-container {
+      background: #1e1e1e;
+      border-radius: 15px;
+      padding: 30px 40px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-container:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+    }
+
+    .profile-pic {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00ffff;
+      margin-bottom: 25px;
+      transition: box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .profile-pic:hover {
+      box-shadow: 0 0 20px #00ffff;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+    }
+
+    p.subtitle {
+      margin-bottom: 30px;
+      color: #6ec1e4;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      background: #292929;
+      border-radius: 10px;
+      padding: 12px 20px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      color: #eee;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .contact-item:hover {
+      background: #00ffff;
+      color: #121212;
+    }
+
+    .contact-item img {
+      width: 28px;
+      height: 28px;
+      margin-right: 18px;
+      filter: invert(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .contact-item:hover img {
+      filter: invert(0);
+    }
+
+    .pricing-section {
+      margin-top: 30px;
+      padding: 20px;
+      background: #2a2a2a;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    .pricing-section h2 {
+      color: #00ffff;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .pricing-section ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 1rem;
+    }
+
+    .pricing-section li {
+      margin-bottom: 10px;
+      padding-left: 10px;
+      position: relative;
+    }
+
+    .pricing-section li::before {
+      content: "💰";
+      position: absolute;
+      left: -20px;
+    }
+
+    .pricing-highlight {
+      color: #6ec1e4;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-container">
+    <img
+      src="parth.png"
+      alt="Parth Bodke Profile Picture"
+      class="profile-pic"
+      title="Parth Bodke"
+      draggable="false"
+    />
+    <h1>Contact Me</h1>
+    <p class="subtitle">Get in touch with Parth Bodke</p>
+
+    <div class="contact-info">
+      <a href="mailto:parthb007700@gmail.com" class="contact-item" title="Send Email" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail Icon" />
+        parthb007700@gmail.com
+      </a>
+
+      <a href="https://github.com/parth007700" class="contact-item" title="Visit GitHub Profile" target="_blank">
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Icon" />
+        github.com/parth007700
+      </a>
+
+      <a href="tel:+919890861692" class="contact-item" title="Call Me">
+        <img src="https://cdn-icons-png.flaticon.com/512/15/15980.png" alt="Phone Icon" />
+        +91 9890861692
+      </a>
+
+      <a href="https://www.snapchat.com/add/parthb0770" class="contact-item" title="Snapchat" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/ad/Snapchat_logo.svg" alt="Snapchat Icon" />
+        parthb0770
+      </a>
+    </div>
+
+    <div class="pricing-section">
+      <h2>💼 Portfolio Pricing</h2>
+      <ul>
+        <li>Single Webpage Portfolio – <span class="pricing-highlight">₹99</span></li>
+        <li>Multi-Page Website – <span class="pricing-highlight">₹199</span></li>
+        <li>Full Website with Hosting – <span class="pricing-highlight">₹299</span></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parth Bodke</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      margin-bottom: 40px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffffaa;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .profile-photo {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 40px auto;
+      border-radius: 50%;
+      position: relative;
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+
+    .profile-photo::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #00f2ff, #ff00c3, #00f2ff);
+      animation: spin 6s linear infinite;
+      top: -10px;
+      left: -10px;
+      z-index: 1;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 6px solid #0f2027;
+      position: relative;
+      z-index: 2;
+      object-fit: cover;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 25px #00ffffaa;
+      }
+      50% {
+        box-shadow: 0 0 40px #00ffffdd;
+      }
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #00ffff33;
+      border-radius: 20px;
+      padding: 25px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 0 20px #00ffff77;
+    }
+
+    .skill-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, #00ffff33, transparent 60%);
+      animation: shine 8s infinite linear;
+      z-index: 0;
+    }
+
+    @keyframes shine {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .skill-card h2 {
+      font-size: 1.6em;
+      color: #00ffff;
+      margin-bottom: 15px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .progress-bar {
+      margin-bottom: 15px;
+    }
+
+    .progress-bar span {
+      display: block;
+      margin-bottom: 5px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .bar {
+      background: #1b1b1b;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 12px;
+    }
+
+    .fill {
+      height: 100%;
+      background: linear-gradient(to right, #00f2ff, #ff00c3);
+      border-radius: 8px;
+      width: 0;
+      animation: fillBar 1.5s forwards ease-out;
+    }
+
+    @keyframes fillBar {
+      0% { width: 0; }
+    }
+
+    @media(max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1 data-aos="fade-down">🧠 My Skillset</h1>
+
+<div class="profile-photo" data-aos="zoom-in">
+  <img src="parth.png" alt="Parth Bodke">
+</div>
+
+<div class="skills-container">
+
+  <!-- Frontend -->
+  <div class="skill-card" data-aos="fade-up">
+    <h2><i class="ri-code-box-line"></i> Frontend Development</h2>
+    <div class="progress-bar"><span>HTML5</span><div class="bar"><div class="fill" style="width: 95%;"></div></div></div>
+    <div class="progress-bar"><span>CSS3 / Tailwind</span><div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
+    <div class="progress-bar"><span>JavaScript</span><div class="bar"><div class="fill" style="width: 85%;"></div></div></div>
+    <div class="progress-bar"><span>React.js</span><div class="bar"><div class="fill" style="width: 75%;"></div></div></div>
+  </div>
+
+  <!-- Backend -->
+  <div class="skill-card" data-aos="fade-up">
+    <h2><i class="ri-database-2-line"></i> Backend & Servers</h2>
+    <div class="progress-bar"><span>Node.js</span><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
+    <div class="progress-bar"><span>Express.js</span><div class="bar"><div class="fill" style="width: 75%;"></div></div></div>
+    <div class="progress-bar"><span>MongoDB</span><div class="bar"><div class="fill" style="width: 70%;"></div></div></div>
+  </div>
+
+  <!-- Design -->
+  <div class="skill-card" data-aos="fade-up">
+    <h2><i class="ri-brush-line"></i> Design & UI</h2>
+    <div class="progress-bar"><span>Animations (CSS/JS)</span><div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
+    <div class="progress-bar"><span>Figma / Adobe XD</span><div class="bar"><div class="fill" style="width: 65%;"></div></div></div>
+    <div class="progress-bar"><span>Photoshop</span><div class="bar"><div class="fill" style="width: 60%;"></div></div></div>
+  </div>
+
+  <!-- Tools -->
+  <div class="skill-card" data-aos="fade-up">
+    <h2><i class="ri-tools-line"></i> Tools & Productivity</h2>
+    <div class="progress-bar"><span>VSCode</span><div class="bar"><div class="fill" style="width: 95%;"></div></div></div>
+    <div class="progress-bar"><span>Git / GitHub</span><div class="bar"><div class="fill" style="width: 85%;"></div></div></div>
+    <div class="progress-bar"><span>Excel / CSV Export</span><div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
+  </div>
+
+  <!-- Soft Skills -->
+  <div class="skill-card" data-aos="fade-up">
+    <h2><i class="ri-team-line"></i> Soft Skills</h2>
+    <div class="progress-bar"><span>Problem Solving</span><div class="bar"><div class="fill" style="width: 95%;"></div></div></div>
+    <div class="progress-bar"><span>Creativity & Innovation</span><div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
+    <div class="progress-bar"><span>Communication</span><div class="bar"><div class="fill" style="width: 85%;"></div></div></div>
+  </div>
+
+  <!-- Cricket Skills -->
+  <div class="skill-card" data-aos="fade-up">
+    <h2><i class="ri-football-line"></i> Cricket Skills</h2>
+    <div class="progress-bar"><span>Batting</span><div class="bar"><div class="fill" style="width: 92%;"></div></div></div>
+    <div class="progress-bar"><span>Bowling</span><div class="bar"><div class="fill" style="width: 78%;"></div></div></div>
+    <div class="progress-bar"><span>Fielding</span><div class="bar"><div class="fill" style="width: 88%;"></div></div></div>
+    <div class="progress-bar"><span>Game Strategy</span><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
+    <div class="progress-bar"><span>Leadership</span><div class="bar"><div class="fill" style="width: 85%;"></div></div></div>
+  </div>
+
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parth Bodke</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0e0e0e;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 30px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .profile-pic {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .profile-pic img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #00ffc8;
+      animation: wave-border 5s linear infinite;
+    }
+
+    @keyframes wave-border {
+      0%, 100% { box-shadow: 0 0 15px #00ffc8; }
+      50% { box-shadow: 0 0 35px #00ffc8; }
+    }
+
+    .home-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #00ffc8;
+      color: black;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      color: #00ffc8;
+      margin-bottom: 30px;
+    }
+
+    .highlight {
+      background: linear-gradient(145deg, #1c1c1c, #292929);
+      padding: 30px;
+      border-radius: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 20px rgba(0,255,200,0.2);
+      text-align: center;
+    }
+
+    .highlight h2 {
+      color: #ff6363;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .highlight p {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 15px;
+    }
+
+    .highlight a {
+      background: #00ffc8;
+      color: #000;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .highlight a:hover {
+      background: #00cfa2;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+      transition: 0.3s;
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .info {
+      padding: 15px;
+    }
+
+    .info h3 {
+      color: #00ffc8;
+      margin-bottom: 10px;
+    }
+
+    .info button {
+      background: #00ffc8;
+      color: black;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .info button:hover {
+      background: #00cfa2;
+    }
+
+    .project-code {
+      background: #111;
+      color: #0f0;
+      font-size: 0.85rem;
+      padding: 15px;
+      margin-top: 10px;
+      display: none;
+      white-space: pre-wrap;
+      overflow-x: auto;
+      border-radius: 10px;
+      border: 1px solid #00ffc8;
+    }
+
+    .random-img {
+      position: absolute;
+      z-index: 0;
+      opacity: 0.15;
+    }
+
+    #img1 { top: 15%; left: 5%; width: 150px; }
+    #img2 { top: 65%; right: 10%; width: 170px; }
+    #img3 { bottom: 5%; left: 40%; width: 160px; }
+  </style>
+</head>
+<body data-aos="fade-in">
+  <a href="index.html" class="home-button">🏠 Home</a>
+
+  <div class="profile-pic" data-aos="zoom-in">
+    <img src="parth.png" alt="Parth Bodke">
+  </div>
+
+  <img src="parth1.png" class="random-img" id="img1">
+  <img src="parth2.png" class="random-img" id="img2">
+  <img src="parth3.png" class="random-img" id="img3">
+
+  <h1>My Projects</h1>
+
+  <section class="highlight" data-aos="zoom-in">
+    <h2>🌟 Alphabet E-Pathshala</h2>
+    <p>My most advanced educational platform with interactive courses, animations, quizzes, and real MS-CIT mock tests.</p>
+    <a href="https://alphabet-era.netlify.app" target="_blank">Visit Project</a>
+  </section>
+
+  <div class="projects" data-aos="fade-up">
+    <div class="card">
+      <img src="type.png" alt="Typing Test">
+      <div class="info">
+        <h3>Typing Test</h3>
+        <button onclick="toggleCode(this)">Show Code</button>
+        <div class="project-code">&lt;!-- Typing test HTML/JS code here --&gt;</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="quiz.png" alt="Mock Test">
+      <div class="info">
+        <h3>Mock Test</h3>
+        <button onclick="toggleCode(this)">Show Code</button>
+        <div class="project-code">&lt;!-- MS-CIT mock test HTML/JS code here --&gt;</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="word.jpg" alt="Word Editor">
+      <div class="info">
+        <h3>Word Editor</h3>
+        <button onclick="toggleCode(this)">Show Code</button>
+        <div class="project-code">&lt;!-- MS Word-style editor HTML/JS code --&gt;</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="bet.png" alt="Dream11 UI">
+      <div class="info">
+        <h3>Dream11 UI</h3>
+        <button onclick="toggleCode(this)">Show Code</button>
+        <div class="project-code">&lt;!-- Fantasy cricket interface code --&gt;</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="game.jpg" alt="Shooting Game">
+      <div class="info">
+        <h3>Shooting Game</h3>
+        <button onclick="toggleCode(this)">Show Code</button>
+        <div class="project-code">&lt;!-- Horizontal shooter game code --&gt;</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleCode(btn) {
+      const code = btn.nextElementSibling;
+      const isVisible = code.style.display === 'block';
+      document.querySelectorAll('.project-code').forEach(c => c.style.display = 'none');
+      code.style.display = isVisible ? 'none' : 'block';
+    }
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000 });</script>
+</body>
+</html>

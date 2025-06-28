@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parth Bodke</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    section#about {
+      padding: 80px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .profile-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+
+    .profile-container::before {
+      content: '';
+      position: absolute;
+      top: -10px; left: -10px;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #00f2ff, #ff00c3, #00f2ff);
+      animation: spin 4s linear infinite;
+      z-index: 1;
+    }
+
+    .profile-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 8px solid #141e30;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .about-text {
+      max-width: 700px;
+    }
+
+    .about-text h1 {
+      font-size: 2.5em;
+      color: #00ffff;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
+
+    .info-boxes {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .info-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #00ffff44;
+      padding: 20px;
+      border-radius: 16px;
+      min-width: 200px;
+      flex: 1;
+      transition: 0.3s;
+    }
+
+    .info-box:hover {
+      transform: scale(1.05);
+      background: rgba(0, 255, 255, 0.1);
+    }
+
+    .info-box h3 {
+      color: #00ffff;
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      margin-top: 40px;
+      font-size: 1em;
+    }
+
+    .contact a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+
+    .typing {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #00ffff;
+      animation: typing 3s steps(30) infinite alternate;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @media(max-width: 768px) {
+      section#about {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .info-boxes {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section id="about" data-aos="fade-up">
+  <div class="profile-container">
+    <img src="parth.png" alt="Parth Bodke">
+  </div>
+
+  <div class="about-text">
+    <h1><span class="typing">Hi, I'm Parth Bodke 👋</span></h1>
+    <p>
+      I'm a creative and passionate full-stack developer from India 🇮🇳, known for blending aesthetics with powerful logic. 
+      I build cutting-edge educational platforms like <strong>Alphabet E-Pathshala</strong>, Dream11-style cricket apps, and smart MS-CIT mock test systems with beautiful UI/UX.
+    </p>
+    <p style="margin-top: 20px;">
+      I work mainly with:
+    </p>
+
+    <div class="info-boxes">
+      <div class="info-box">
+        <h3>⚙️ Technologies</h3>
+        <p>HTML, CSS, JS, Node.js, React, Express</p>
+      </div>
+      <div class="info-box">
+        <h3>🎨 Design</h3>
+        <p>Animations, Wavy Borders, Typewriter Effects</p>
+      </div>
+      <div class="info-box">
+        <h3>📚 Projects</h3>
+        <p>MS-CIT Quizzes, E-Learning Portals, Login Systems</p>
+      </div>
+      <div class="info-box">
+        <h3>📌 Tools</h3>
+        <p>VSCode, GitHub, Adobe XD, Figma, Excel Export</p>
+      </div>
+    </div>
+
+    <div class="contact">
+      <p><strong>📧 Email:</strong> <a href="mailto:parthb007700@gmail.com">parthb007700@gmail.com</a></p>
+      <p><strong>📱 Phone:</strong> <a href="tel:+919890861692">+91 9890861692</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+</body>
+</html>
